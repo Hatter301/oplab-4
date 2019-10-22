@@ -1,10 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 int main()
 {
-    const int p=10;
-    int m[p];
-    int i=0,j=0,t;
-    while(i!=p) {
+    int* m;
+    int i=0,j=0,t,p;
+    scanf("%d",&p);
+    if (p<=0)
+    printf("Данные введены некорректно");
+    else {
+    m=(int *)malloc(p * sizeof(int));
+    while(i<p) {
     scanf("%d",&m[i]);
     i++;
     }
@@ -19,9 +24,11 @@ int main()
     }
     i=0;
     }
-    while(i!=p) {
+    while(i<p) {
     printf("%d ",m[i]);
     i++;
+    }
+    free(m);
     }
     return 0;
 }
